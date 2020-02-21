@@ -34,7 +34,7 @@ const char * Supported_Button[2] = {
 
 const char * Supported_RelayFlag[2] = {
   "Reset",
-  "PamiĂ„â„˘taj stan"
+  "Pamiętaj stan"
 };
 
 String supla_webpage_upddate(void) {
@@ -53,10 +53,10 @@ String supla_webpage_upddate(void) {
   content += "<center>";
   content += "<iframe src=";
   content += UPDATE_PATH;
-  content += ">Twoja przeglĂ„â€¦darka nie akceptuje ramek! width='200' height='100' frameborder='100'></iframe>";
+  content += ">Twoja przeglądarka nie akceptuje ramek! width='200' height='100' frameborder='100'></iframe>";
   content += "</center>";
   content += "</div>";
-  content += "<a href='/'><button>POWRÄ‚â€śT</button></a></div>";
+  content += "<a href='/'><button>POWRÓT</button></a></div>";
   content += "<br><br>";
 
   return content;
@@ -115,7 +115,7 @@ String supla_webpage_search(int save) {
       }
     }
   } else {
-    content += "<i><label>brak podÄąâ€šĂ„â€¦czonych czujnikÄ‚Ĺ‚w</label></i>";
+    content += "<i><label>brak podłączonych czujników</label></i>";
   }
   content += "</div>";
 
@@ -123,7 +123,7 @@ String supla_webpage_search(int save) {
   content += "<form method='post' action='setup'>";
   content += "<button type='submit'>Zapisz znalezione DSy</button></form>";
   content += "<br>";
-  content += "<a href='/'><button>PowrÄ‚Ĺ‚t</button></a></div>";
+  content += "<a href='/'><button>Powrót</button></a></div>";
   content += "<br><br>";
 
   return content;
@@ -140,12 +140,12 @@ String supla_webpage_start(int save) {
   content += "<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>";
   content += "<style>body{font-size:14px;font-family:HelveticaNeue,'Helvetica Neue',HelveticaNeueRoman,HelveticaNeue-Roman,'Helvetica Neue Roman',TeXGyreHerosRegular,Helvetica,Tahoma,Geneva,Arial,sans-serif;font-weight:400;font-stretch:normal;background:" + String(gui_color) + ";color:#fff;line-height:20px;padding:0}.s{width:460px;margin:0 auto;margin-top:calc(50vh - 340px);border:solid 3px #fff;padding:0 10px 10px;border-radius:3px}#l{display:block;max-width:150px;height:155px;margin:-80px auto 20px;background:" + String(gui_color) + ";padding-right:5px}#l path{fill:#000}.w{margin:3px 0 16px;padding:5px 0;border-radius:3px;background:#fff;" + String(gui_box_shadow) + "}h1,h3{margin:10px 8px;font-family:HelveticaNeueLight,HelveticaNeue-Light,'Helvetica Neue Light',HelveticaNeue,'Helvetica Neue',TeXGyreHerosRegular,Helvetica,Tahoma,Geneva,Arial,sans-serif;font-weight:300;font-stretch:normal;color:#000;font-size:23px}h1{margin-bottom:14px;color:#fff}span{display:block;margin:10px 7px 14px}i{display:block;font-style:normal;position:relative;border-bottom:solid 1px " + String(gui_color) + ";height:42px}i:last-child{border:none}label{position:absolute;display:inline-block;top:0;left:8px;color:" + String(gui_color) + ";line-height:41px;pointer-events:none}input,select{width:calc(100% - 145px);border:none;font-size:16px;line-height:40px;border-radius:0;letter-spacing:-.5px;background:#fff;color:#000;padding-left:144px;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:0!important;height:40px}select{padding:0;float:right;margin:1px 3px 1px 2px}button{width:100%;border:0;background:#000;padding:5px 10px;font-size:16px;line-height:40px;color:#fff;border-radius:3px;" + String(gui_box_shadow) + ";cursor:pointer}.c{background:#ffe836;position:fixed;width:100%;line-height:80px;color:#000;top:0;left:0;" + String(gui_box_shadow) + ";text-align:center;font-size:26px;z-index:100}@media all and (max-height:920px){.s{margin-top:80px}}@media all and (max-width:900px){.s{width:calc(100% - 20px);margin-top:40px;border:none;padding:0 8px;border-radius:0}#l{max-width:80px;height:auto;margin:10px auto 20px}h1,h3{font-size:19px}i{border:none;height:auto}label{display:block;margin:4px 0 12px;color:" + String(gui_color) + ";font-size:13px;position:relative;line-height:18px}input,select{width:calc(100% - 10px);font-size:16px;line-height:28px;padding:0 5px;border-bottom:solid 1px " + String(gui_color) + "}select{width:100%;float:none;margin:0}}</style>";
   if (save == 1) {
-    content += "<div id=\"msg\" class=\"c\">Dane zapisane - naleÄąÄ˝y zrobiĂ„â€ˇ restart urzĂ„â€¦dzenia!!!</div>";
+    content += "<div id=\"msg\" class=\"c\">Dane zapisane - należy zrobić restart urządzenia!!!</div>";
   }
   else if (save == 2) {
-    content += "<div id=\"msg\" class=\"c\">Restart moduÄąâ€šu</div>";
+    content += "<div id=\"msg\" class=\"c\">Restart modułu</div>";
   } else if (save == 3) {
-    content += "<div id=\"msg\" class=\"c\">Dane wymazane - naleÄąÄ˝y zrobiĂ„â€ˇ restart urzĂ„â€¦dzenia!!!</div>";
+    content += "<div id=\"msg\" class=\"c\">Dane wymazane - należy zrobić restart urządzenia!!!</div>";
   }
   content += "<script type='text/javascript'>setTimeout(function(){var element =  document.getElementById('msg');if ( element != null ) element.style.visibility = 'hidden';},3200);</script>";
   content += "<div class='s'>";
@@ -155,7 +155,6 @@ String supla_webpage_start(int save) {
   content += "<font size='2'>GUID:  " + read_guid() + "</font><br>";
   content += "<font size='2'>MAC:  " + my_mac_adress() + "</font><br>";
   content += "<font size='2'>RSSI: " + read_rssi() + "</font><br>";
-  content += "<font size='2'>CHIP ID : " + aqiEcoChipId + "</font>";
   content += "<form method='post' action='set0'>";
   content += "<div class='w'>";
   content += "<h3>Ustawienia WIFI</h3>";
@@ -179,7 +178,7 @@ String supla_webpage_start(int save) {
     content += MAX_PASSWORD;
     content += ">";
   }
-  content += "<label>HasÄąâ€šo</label></i>";
+  content += "<label>Hasło</label></i>";
   content += "<i><input name='supla_hostname' value='";
   String def = DEFAULT_HOSTNAME;
   if (def != String(read_supla_hostname().c_str())) {
@@ -187,7 +186,7 @@ String supla_webpage_start(int save) {
   }
   content += "'length=";
   content += MAX_HOSTNAME;
-  content += " placeholder='Nie jest wymagana'><label>Nazwa moduÄąâ€šu</label></i>";
+  content += " placeholder='Nie jest wymagana'><label>Nazwa modułu</label></i>";
   content += "</div>";
   content += "<div class='w'>";
   content += "<h3>Ustawienia administratora</h3>";
@@ -211,7 +210,7 @@ String supla_webpage_start(int save) {
     content += MAX_MPASSWORD;
     content += ">";
   }
-  content += "<label>HasÄąâ€šo</label></i>";
+  content += "<label>Hasło</label></i>";
   content += "</div>";
   content += "<div class='w'>";  
   content += "<h3>Ustawienia SUPLA</h3>";
@@ -241,12 +240,12 @@ String supla_webpage_start(int save) {
     content += MAX_SUPLA_PASS;
     content += ">";
   }
-  content += "<label>HasÄąâ€šo</label></i>";
+  content += "<label>Hasło</label></i>";
   content += "</div>";
 
   if (nr_ds18b20 > 0) {
     content += "<div class='w'>";
-    content += "<h3>NasÄąâ€šonecznienie</h3>";
+    content += "<h3>Nasłonecznienie</h3>";
     for (int i = 0; i < nr_ds18b20; i++) {
       double temp = get_temperature(ds18b20_channel[i].channel, 0);
       if (ds18b20_channel[i].type == 1) {
@@ -263,7 +262,7 @@ String supla_webpage_start(int save) {
       } else if (ds18b20_channel[i].type == 0) {       
              content += "<i><input name='supla_light_sensor' value='" + String(temp) + "' readonly><label style='left: calc(100% - 255px)'>lux</label>";
              content += "<label>";
-             content += "NatĂ„â„˘ÄąÄ˝enie";
+             content += "Natężenie";
              content += "</label></i>"; 
       }
     }
@@ -284,22 +283,22 @@ String supla_webpage_start(int save) {
              
     content += "<i><input name='supla_bme280_humi' value='" + String(humidity_html) + "' readonly><label style='left: calc(100% - 255px)'> % </label>";
     content += "<label>";
-    content += "WilgotnoÄąâ€şĂ„â€ˇ";
+    content += "Wilgotność";
     content += "</label></i>"; 
 
     content += "<i><input name='supla_bme280_pressure' value='" + String(pressure) + "' readonly><label style='left: calc(100% - 255px)'> hPa </label>";
     content += "<label>";
-    content += "CiÄąâ€şnienie bezwzgl.";
+    content += "Ciśnienie bezwzgl.";
     content += "</label></i>"; 
 
     content += "<i><input name='supla_bme280_pressure_sea' value='" + String(pressure_sea) + "' readonly><label style='left: calc(100% - 255px)'> hPa </label>";
     content += "<label>";
-    content += "CiÄąâ€şnienie ";
+    content += "Ciśnienie ";
     content += "</label></i>"; 
 
     content += "<i><input name='supla_bme_elevation' value='" + String(bme_channel.elevation) + "' ><label style='left: calc(100% - 255px)'>m npm </label>";
     content += "<label>";
-    content += "WysokoÄąâ€şĂ„â€ˇ ";
+    content += "Wysokość ";
     content += "</label></i>"; 
              
     content += "</div>";
@@ -311,12 +310,12 @@ String supla_webpage_start(int save) {
     
     content += "<i><input name='supla_sht31d_temperature' value='" + String(temp_html) + "' readonly><label style='left: calc(100% - 255px)'>&#x2103 </label>";
     content += "<label>";
-    content += "WysokoÄąâ€şĂ„â€ˇ ";
+    content += "Wysokość ";
     content += "</label></i>"; 
 
     content += "<i><input name='supla_sht31d_humidity' value='" + String(humidity_html) + "' readonly><label style='left: calc(100% - 255px)'> % </label>";
     content += "<label>";
-    content += "WilgotnoÄąâ€şĂ„â€ˇ";
+    content += "Wilgotność";
     content += "</label></i>"; 
         
     content += "</div>";
@@ -331,42 +330,21 @@ String supla_webpage_start(int save) {
     content += "Czasookres pracy";
     content += "</label></i>"; 
 
-    content += "<i><input name='SDS011_NORM25' value='" + String(norma_pm25) + "' ><label style='left: calc(100% - 255px)'>ĂŽÄ˝g/mĂŽÄ˝Ă‚Ĺ‚</label>";
+    content += "<i><input name='SDS011_NORM25' value='" + String(norma_pm25) + "' ><label style='left: calc(100% - 255px)'>μg/mμ³</label>";
     content += "<label>";
     content += "Norma dla PM 2.5";
     content += "</label></i>"; 
     
-    content += "<i><input name='SDS011_NORM10' value='" + String(norma_pm10) + "' ><label style='left: calc(100% - 255px)'>ĂŽÄ˝g/mĂŽÄ˝Ă‚Ĺ‚</label>";
+    content += "<i><input name='SDS011_NORM10' value='" + String(norma_pm10) + "' ><label style='left: calc(100% - 255px)'>μg/mμ³</label>";
     content += "<label>";
     content += "Norma dla PM 10";
     content += "</label></i>"; 
            
     content += "</div>";
   
-
-    content += "<div class='w'>";
-    //content += "<form method='get'>";
-    content += "<h3>Serwer AQI.ECO</h3>";
-    //content += "<input type='checkbox' name='vehicle1' value='Bike'> I have a bike<br>";
-    //content += "<input type='checkbox' onclick='var input = document.getElementById('aqieco_path'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}; ";
-    //content += "                                 var input = document.getElementById('aqieco_host'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}' /> Aktywacja AQI-eco <br>";
-    content += "<i><input id='aqieco_host' name='aqieco_host' value='" + String(AQI_ECO_HOST) + "' disabled='disabled' /><label style='left: calc(100% - 255px)'></label>";
-    content += "<label>";
-    content += "Adres serwera";
-    content += "</label></i>"; 
-
-    content += "<i><input id='aqieco_path' name='aqieco_path' value='" + String(AQI_ECO_PATH) + "' disabled='disabled' /><label style='left: calc(100% - 255px)'></label>";
-    content += "<label>";
-    content += "ÄąĹˇcieÄąÄ˝ka dostĂ„â„˘pu";
-    content += "</label></i>";       
-      //content +="</form>";      
-    content += "</div>";
-  
-
-
   if (nr_button > 0 || nr_relay > 0) {
     content += "<div class='w'>";
-    content += "<h3>Ustawienia moduÄąâ€šu</h3>";
+    content += "<h3>Ustawienia modułu</h3>";
     if (nr_button > 0) {
       for (int i = 1; i <= nr_button; ++i) {
         content += "<i><label>Przycisk ";
@@ -393,7 +371,7 @@ String supla_webpage_start(int save) {
         byte v = digitalRead(relay_button_channel[i - 1].relay);
         if (relay_button_channel[i - 1].invert == 1) v ^= 1;
         content += "<i><label ";
-        content += ">PrzekaÄąĹźnik ";
+        content += ">Przekaźnik ";
         content += i;
         if (v == 1) content += " <font color='red' style='background-color:red'>##</font>";
         content += "</label><select name='relay_set";
@@ -420,7 +398,7 @@ String supla_webpage_start(int save) {
   content += "<a href='/firmware_up'><button>Aktualizacja</button></a>";
   content += "<br><br>";
   content += "<form method='post' action='eeprom'>";
-  content += "<button type='submit'>WyczyÄąâ€şĂ„â€ˇ EEPROM</button></form>";
+  content += "<button type='submit'>Wyczyść EEPROM</button></form>";
   content += "<br>";
   content += "<form method='post' action='reboot'>";
   content += "<button type='submit'>Restart</button></form></div>";
@@ -436,7 +414,7 @@ String my_mac_adress(void) {
 void status_func(int status, const char *msg) {
   switch (status) {
     case 2:
-      supla_status.status_msg = "JuÄąÄ˝ zainicjalizowane";
+      supla_status.status_msg = "Już zainicjalizowane";
       supla_status.status_msg_oled = "Juz zainicjalizowane";
       break;
     case 3:
@@ -444,7 +422,7 @@ void status_func(int status, const char *msg) {
       supla_status.status_msg_oled = "Nie przypisane CB";
       break;
     case 4:
-      supla_status.status_msg = "NieprawidÄąâ€šowy identyfikator GUID lub rejestracja urzĂ„â€¦dzeÄąâ€ž NIEAKTYWNA";
+      supla_status.status_msg = "Nieprawidłowy identyfikator GUID lub rejestracja urządzeń NIEAKTYWNA";
       supla_status.status_msg_oled = "Nieprawidlowy identyfikator GUID lub rejestracja urzadzen NIEAKTYWNA";
       break;
     case 5:
@@ -460,11 +438,11 @@ void status_func(int status, const char *msg) {
       supla_status.status_msg_oled = "Zainicjowany";
       break;
     case 8:
-      supla_status.status_msg = "Przekroczono limit kanaÄąâ€šu";
+      supla_status.status_msg = "Przekroczono limit kanału";
       supla_status.status_msg_oled = "Przekroczono limit kanalu";
       break;
     case 9:
-      supla_status.status_msg = "RozÄąâ€šĂ„â€¦czony";
+      supla_status.status_msg = "Rozłączony";
       supla_status.status_msg_oled = "Rozlaczony";
       break;
     case 10:
@@ -472,19 +450,19 @@ void status_func(int status, const char *msg) {
       supla_status.status_msg_oled = "Rejestracja w toku";
       break;
     case 11:
-      supla_status.status_msg = "BÄąâ€šĂ„â€¦d zmiennej";
+      supla_status.status_msg = "Błąd zmiennej";
       supla_status.status_msg_oled = "Blad zmiennej";
       break;
     case 12:
-      supla_status.status_msg = "BÄąâ€šĂ„â€¦d wersji protokoÄąâ€šu";
+      supla_status.status_msg = "Błąd wersji protokołu";
       supla_status.status_msg_oled = "Blad wersji protokolu";
       break;
     case 13:
-      supla_status.status_msg = "ZÄąâ€še poÄąâ€şwiadczenia";
+      supla_status.status_msg = "Złe poświadczenia";
       supla_status.status_msg_oled = "Zle poswiadczenia";
       break;
     case 14:
-      supla_status.status_msg = "Tymczasowo niedostĂ„â„˘pne";
+      supla_status.status_msg = "Tymczasowo niedostępne";
       supla_status.status_msg_oled = "Tymczasowo niedostepne";
       break;
     case 15:
@@ -492,7 +470,7 @@ void status_func(int status, const char *msg) {
       supla_status.status_msg_oled = "Konflikt lokalizacji";
       break;
     case 16:
-      supla_status.status_msg = "Konflikt kanaÄąâ€šÄ‚Ĺ‚w";
+      supla_status.status_msg = "Konflikt kanałów";
       supla_status.status_msg_oled = "Konflikt kanalow";
       break;
     case 17:
@@ -500,15 +478,15 @@ void status_func(int status, const char *msg) {
       supla_status.status_msg_oled = "Zarejestrowany i gotowy";
       break;
     case 18:
-      supla_status.status_msg = "UrzĂ„â€¦dzenie jest rozÄąâ€šĂ„â€¦czone";
+      supla_status.status_msg = "Urządzenie jest rozłączone";
       supla_status.status_msg_oled = "Urzadzenie jest rozlaczone";
       break;
     case 19:
-      supla_status.status_msg = "Lokalizacja jest wyÄąâ€šĂ„â€¦czona";
+      supla_status.status_msg = "Lokalizacja jest wyłączona";
       supla_status.status_msg_oled = "Lokalizacja jest wylaczona";
       break;
     case 20:
-      supla_status.status_msg = "Przekroczono limit urzĂ„â€¦dzeÄąâ€ž";
+      supla_status.status_msg = "Przekroczono limit urządzeń";
       supla_status.status_msg_oled = "Przekroczono limit urzadzen"; break;
   }
 
@@ -532,5 +510,3 @@ void status_func(int status, const char *msg) {
 String getLogoSupla(void) {
   return "<center><a href='/'><svg version='1.1' id='l' x='0' y='0' viewBox='0 0 200 200' xml:space='preserve'><path d='M59.3,2.5c18.1,0.6,31.8,8,40.2,23.5c3.1,5.7,4.3,11.9,4.1,18.3c-0.1,3.6-0.7,7.1-1.9,10.6c-0.2,0.7-0.1,1.1,0.6,1.5c12.8,7.7,25.5,15.4,38.3,23c2.9,1.7,5.8,3.4,8.7,5.3c1,0.6,1.6,0.6,2.5-0.1c4.5-3.6,9.8-5.3,15.7-5.4c12.5-0.1,22.9,7.9,25.2,19c1.9,9.2-2.9,19.2-11.8,23.9c-8.4,4.5-16.9,4.5-25.5,0.2c-0.7-0.3-1-0.2-1.5,0.3c-4.8,4.9-9.7,9.8-14.5,14.6c-5.3,5.3-10.6,10.7-15.9,16c-1.8,1.8-3.6,3.7-5.4,5.4c-0.7,0.6-0.6,1,0,1.6c3.6,3.4,5.8,7.5,6.2,12.2c0.7,7.7-2.2,14-8.8,18.5c-12.3,8.6-30.3,3.5-35-10.4c-2.8-8.4,0.6-17.7,8.6-22.8c0.9-0.6,1.1-1,0.8-2c-2-6.2-4.4-12.4-6.6-18.6c-6.3-17.6-12.7-35.1-19-52.7c-0.2-0.7-0.5-1-1.4-0.9c-12.5,0.7-23.6-2.6-33-10.4c-8-6.6-12.9-15-14.2-25c-1.5-11.5,1.7-21.9,9.6-30.7C32.5,8.9,42.2,4.2,53.7,2.7c0.7-0.1,1.5-0.2,2.2-0.2C57,2.4,58.2,2.5,59.3,2.5z M76.5,81c0,0.1,0.1,0.3,0.1,0.6c1.6,6.3,3.2,12.6,4.7,18.9c4.5,17.7,8.9,35.5,13.3,53.2c0.2,0.9,0.6,1.1,1.6,0.9c5.4-1.2,10.7-0.8,15.7,1.6c0.8,0.4,1.2,0.3,1.7-0.4c11.2-12.9,22.5-25.7,33.4-38.7c0.5-0.6,0.4-1,0-1.6c-5.6-7.9-6.1-16.1-1.3-24.5c0.5-0.8,0.3-1.1-0.5-1.6c-9.1-4.7-18.1-9.3-27.2-14c-6.8-3.5-13.5-7-20.3-10.5c-0.7-0.4-1.1-0.3-1.6,0.4c-1.3,1.8-2.7,3.5-4.3,5.1c-4.2,4.2-9.1,7.4-14.7,9.7C76.9,80.3,76.4,80.3,76.5,81z M89,42.6c0.1-2.5-0.4-5.4-1.5-8.1C83,23.1,74.2,16.9,61.7,15.8c-10-0.9-18.6,2.4-25.3,9.7c-8.4,9-9.3,22.4-2.2,32.4c6.8,9.6,19.1,14.2,31.4,11.9C79.2,67.1,89,55.9,89,42.6z M102.1,188.6c0.6,0.1,1.5-0.1,2.4-0.2c9.5-1.4,15.3-10.9,11.6-19.2c-2.6-5.9-9.4-9.6-16.8-8.6c-8.3,1.2-14.1,8.9-12.4,16.6C88.2,183.9,94.4,188.6,102.1,188.6z M167.7,88.5c-1,0-2.1,0.1-3.1,0.3c-9,1.7-14.2,10.6-10.8,18.6c2.9,6.8,11.4,10.3,19,7.8c7.1-2.3,11.1-9.1,9.6-15.9C180.9,93,174.8,88.5,167.7,88.5z'/></svg></a></center>";
 }
-
-

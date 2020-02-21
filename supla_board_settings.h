@@ -68,5 +68,3 @@ void supla_board_configuration(void);
 
 
 #endif //SUPLA_BOARD_SETTINGS_H
-
-

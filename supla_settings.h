@@ -22,7 +22,7 @@
 
 //DS18B20 ************************************************************************************************
 #define  MAX_DS18B20            3
-#define  TEMPERATURE_PRECISION  10  // rozdzielczoÄąâ€şĂ„â€ˇ czujnika DS 9 -12 bit
+#define  TEMPERATURE_PRECISION  10  // rozdzielczość czujnika DS 9 -12 bit
 //LED CONFIG *********************************************************************************************
 #define LED_CONFIG_PIN         12
 //CONFIG PIN *********************************************************************************************
@@ -89,5 +89,3 @@ double get_pressure(int channelNumber, double last_val);
 extern double temp_html;
 extern double humidity_html;
 #endif //SUPLA_SETTINGS_H
-
-

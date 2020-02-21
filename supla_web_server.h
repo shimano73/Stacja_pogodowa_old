@@ -22,15 +22,14 @@ extern uint8_t mac[WL_MAC_ADDR_LENGTH];
 extern const char* gui_color;
 extern const char* gui_box_shadow;
 extern const String Device_setName;
-extern String aqiEcoChipId;
+
 
 extern byte Modul_tryb_konfiguracji;
 extern int CustomWorkingPeriod;
 extern int norma_pm10;    
 extern int norma_pm25;
 
-extern char AQI_ECO_HOST[25];
-extern char AQI_ECO_PATH[50];
+
 
 typedef struct {
   int status;
@@ -53,5 +52,3 @@ void status_func(int status, const char *msg);
 String getLogoSupla(void);
 
 #endif //SUPLA_WEB_SERVER_H
-
-
