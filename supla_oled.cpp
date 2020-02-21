@@ -180,7 +180,7 @@ void display_temperature(OLEDDisplay *display, OLEDDisplayUiState* state, int16_
   String temp = get_temperature(ds18b20_channel[state->currentFrame].last_val);
   display->drawString(x + temp_width + 10, y + drawStringIcon, temp);
   display->setFont(ArialMT_Plain_16);
-  display->drawString(x + temp_width + 10 + (temp.length() * 12), y + drawStringIcon, "ºC");
+  display->drawString(x + temp_width + 10 + (temp.length() * 12), y + drawStringIcon, "ÂşC");
 }
 
 void display_dht_temp(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
@@ -198,7 +198,7 @@ void display_dht_temp(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x
   String temp = get_temperature(dht_channel[dht_val].temp);
   display->drawString(x + temp_width + 10, y + drawStringIcon , temp);
   display->setFont(ArialMT_Plain_16);
-  display->drawString(x + temp_width + 10 + (temp.length() * 12), y + drawStringIcon, "ºC");
+  display->drawString(x + temp_width + 10 + (temp.length() * 12), y + drawStringIcon, "ÂşC");
 }
 
 void display_dht_humidity(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
@@ -226,7 +226,7 @@ void display_bme280_temp(OLEDDisplay *display, OLEDDisplayUiState* state, int16_
   String temp = get_temperature(bme_channel.temp);
   display->drawString(x + temp_width + 10, y + drawStringIcon , temp);
   display->setFont(ArialMT_Plain_16);
-  display->drawString(x + temp_width + 10 + (temp.length() * 12), y + drawStringIcon, "ºC");
+  display->drawString(x + temp_width + 10 + (temp.length() * 12), y + drawStringIcon, "ÂşC");
 }
 
 void display_bme280_humidity(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
@@ -384,3 +384,4 @@ void supla_oled_timer() {
     }
   }
 }
+

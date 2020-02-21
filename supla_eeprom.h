@@ -49,3 +49,4 @@ extern int CustomWorkingPeriod;
 extern int norma_pm10;    
 extern int norma_pm25;
 #endif //SUPLA_EEPROM_H
+

@@ -52,3 +52,4 @@ void status_func(int status, const char *msg);
 String getLogoSupla(void);
 
 #endif //SUPLA_WEB_SERVER_H
+
