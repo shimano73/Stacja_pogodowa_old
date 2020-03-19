@@ -25,6 +25,16 @@ void save_bme_elevation(int temp);
 void save_sds011_cwp(int temp);
 void save_sds011_norm_pm10(int temp);
 void save_sds011_norm_pm25(int temp);
+void save_One_rpm_speed(String save);
+void save_aqi_eco_state(String save);
+void save_aqi_eco_host(String save);
+void save_aqi_eco_path(String save);
+void save_air_monitor_state(String save);
+void save_air_monitor_server(String save);
+void save_air_monitor_latitude(String save);
+void save_air_monitor_longitude(String save);
+
+
 
 String read_wifi_ssid(void);
 String read_wifi_pass(void);
@@ -44,9 +54,21 @@ int read_bme_elevation();
 int read_sds011_cwp();
 int read_sds011_norm_pm25();
 int read_sds011_norm_pm10();
+String read_One_rpm_speed(void);
+int    read_aqi_eco_state();
+String read_aqi_eco_host(void);
+String read_aqi_eco_path(void);
+int    read_air_monitor_state();
+String read_air_monitor_server(void);
+String read_air_monitor_latitude(void);
+String read_air_monitor_longitude(void);
+
 
 extern int CustomWorkingPeriod;
 extern int norma_pm10;    
 extern int norma_pm25;
+extern char select_monitor_state;
+extern double One_rpm_speed;
 #endif //SUPLA_EEPROM_H
+
 

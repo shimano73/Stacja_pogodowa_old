@@ -22,7 +22,7 @@
 
 //DS18B20 ************************************************************************************************
 #define  MAX_DS18B20            3
-#define  TEMPERATURE_PRECISION  10  // rozdzielczoĹ›Ä‡ czujnika DS 9 -12 bit
+#define  TEMPERATURE_PRECISION  10  // rozdzielczoÄąâ€şĂ„â€ˇ czujnika DS 9 -12 bit
 //LED CONFIG *********************************************************************************************
 #define LED_CONFIG_PIN         12
 //CONFIG PIN *********************************************************************************************
@@ -48,6 +48,13 @@
 #define  MAX_RELAY_STATE     16
 #define  MAX_DS18B20_SIZE    16
 #define  MAX_DS18B20_NAME    8
+#define  MAX_SERVER_MONITOR  2
+#define  MAX_AQI_ECO_HOST    25
+#define  MAX_AQI_ECO_PATH          50
+#define  MAX_AIR_MONITOR_SERVER    25
+#define  MAX_AIR_MONITOR_LATITUDE   10
+#define  MAX_AIR_MONITOR_LONGITUDE 10
+
 
 
 #define  GUI_BLUE              "#005c96"
@@ -89,4 +96,5 @@ double get_pressure(int channelNumber, double last_val);
 extern double temp_html;
 extern double humidity_html;
 #endif //SUPLA_SETTINGS_H
+
 

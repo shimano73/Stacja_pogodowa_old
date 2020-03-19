@@ -479,7 +479,8 @@ String read_DS18b20_address(int nr) {
 }
 
 void save_DS18b20_name(String save, int nr) {
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * nr);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * nr);
   int koniec = start + MAX_DS18B20_NAME ;
   int len = save.length();
 
@@ -495,7 +496,8 @@ void save_DS18b20_name(String save, int nr) {
 
 String read_DS18b20_name(int nr) {
   String read_eeprom = "";
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * nr);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * nr);
   int koniec = start + MAX_DS18B20_NAME ;
 
   EEPROM.begin(EEPROM_SIZE);
@@ -508,7 +510,8 @@ String read_DS18b20_name(int nr) {
 }
 
 void save_bme_elevation(int temp) {
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20);
   EEPROM.begin(EEPROM_SIZE);
   EEPROM.put(start, temp);
   EEPROM.commit();
@@ -517,7 +520,8 @@ void save_bme_elevation(int temp) {
 
 int read_bme_elevation() {
   int temp = 0;
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20);
   EEPROM.begin(EEPROM_SIZE);
   delay(100);
   EEPROM.get(start, temp);
@@ -526,7 +530,8 @@ int read_bme_elevation() {
 }
 
 void save_sds011_cwp(int temp) {
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
   EEPROM.begin(EEPROM_SIZE);
   EEPROM.put(start, temp);
   EEPROM.commit();
@@ -535,7 +540,8 @@ void save_sds011_cwp(int temp) {
 
 int read_sds011_cwp() {
   int temp = 0;
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
   EEPROM.begin(EEPROM_SIZE);
   delay(100);
   EEPROM.get(start, temp);
@@ -544,7 +550,9 @@ int read_sds011_cwp() {
 }
 
 void save_sds011_norm_pm25(int temp) {
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation) + sizeof(CustomWorkingPeriod);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation);
+      start = start + sizeof(CustomWorkingPeriod);
   EEPROM.begin(EEPROM_SIZE);
   EEPROM.put(start, temp);
   EEPROM.commit();
@@ -553,7 +561,9 @@ void save_sds011_norm_pm25(int temp) {
 
 int read_sds011_norm_pm25() {
   int temp = 0;
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation) + sizeof(CustomWorkingPeriod);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
+      start = start + sizeof(CustomWorkingPeriod);
   EEPROM.begin(EEPROM_SIZE);
   delay(100);
   EEPROM.get(start, temp);
@@ -562,7 +572,9 @@ int read_sds011_norm_pm25() {
 }
 
 void save_sds011_norm_pm10(int temp) {
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation) + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation);
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25);
   EEPROM.begin(EEPROM_SIZE);
   EEPROM.put(start, temp);
   EEPROM.commit();
@@ -571,7 +583,9 @@ void save_sds011_norm_pm10(int temp) {
 
 int read_sds011_norm_pm10() {
   int temp = 0;
-  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation) + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25);
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25);
   EEPROM.begin(EEPROM_SIZE);
   delay(100);
   EEPROM.get(start, temp);
@@ -579,3 +593,278 @@ int read_sds011_norm_pm10() {
   return temp;
 }
 
+void save_One_rpm_speed(String save) {
+  int start =  1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10);
+  int koniec = start + MAX_SSID;
+
+  int len = save.length();
+  EEPROM.begin(EEPROM_SIZE);
+  for (int i = 0; i < len; ++i) {
+    EEPROM.write(start + i, save[i]);
+  }
+  for (int i = start + len; i < koniec; ++i) {
+    EEPROM.write(i, 0);
+  }
+  EEPROM.end();
+}
+
+String read_One_rpm_speed(void) {
+  String read_eeprom = "";
+  int start =  1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+  start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20)+ sizeof(bme_channel.elevation);
+  start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10);  
+  int koniec = start + MAX_SSID;
+
+  EEPROM.begin(EEPROM_SIZE);
+  delay(100);
+  for (int i = start; i < koniec; ++i) {
+    read_eeprom += char(EEPROM.read(i));
+  }
+  EEPROM.end();
+  return read_eeprom;
+}
+
+
+//************************* aqi_eco ***********************
+
+void save_aqi_eco_state(String save) {
+  
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation);
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed);  
+   int len = save.length();
+    EEPROM.begin(EEPROM_SIZE);
+    for (int i = 0; i < len; ++i) {
+      EEPROM.write(start, save[i]);
+    }
+    EEPROM.end();
+  
+}
+
+int read_aqi_eco_state() {
+  int read_eeprom;
+  int start =     1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed);  
+  EEPROM.begin(EEPROM_SIZE);
+  delay(100);
+  read_eeprom = EEPROM.read(start);
+  EEPROM.end();
+  
+  return read_eeprom - 48;
+}
+
+
+
+void save_aqi_eco_host(String save) {
+    int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+        start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+        start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state) ;
+  int koniec = start + MAX_AQI_ECO_HOST;
+
+  int len = save.length();
+  EEPROM.begin(EEPROM_SIZE);
+  for (int i = 0; i < len; ++i) {
+    EEPROM.write(start + i, save[i]);
+  }
+  for (int i = start + len; i < koniec; ++i) {
+    EEPROM.write(i, 0);
+  }
+  EEPROM.end();
+}
+
+String read_aqi_eco_host(void) {
+  String read_eeprom = "";
+    int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+        start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+        start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state) ;
+  int koniec = start + MAX_AQI_ECO_HOST;
+
+  EEPROM.begin(EEPROM_SIZE);
+  delay(100);
+  for (int i = start; i < koniec; ++i) {
+    read_eeprom += char(EEPROM.read(i));
+  }
+  EEPROM.end();
+  return read_eeprom;
+}
+
+void save_aqi_eco_path(String save) {
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state) + MAX_AQI_ECO_HOST;
+  int koniec = start + MAX_AQI_ECO_PATH;
+
+  int len = save.length();
+  EEPROM.begin(EEPROM_SIZE);
+  for (int i = 0; i < len; ++i) {
+    EEPROM.write(start + i, save[i]);
+  }
+  for (int i = start + len; i < koniec; ++i) {
+    EEPROM.write(i, 0);
+  }
+  EEPROM.end();
+}
+
+String read_aqi_eco_path(void) {
+  String read_eeprom = "";
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+  int koniec = start + MAX_AQI_ECO_PATH;
+
+  EEPROM.begin(EEPROM_SIZE);
+  delay(100);
+  for (int i = start; i < koniec; ++i) {
+    read_eeprom += char(EEPROM.read(i));
+  }
+  EEPROM.end();
+  return read_eeprom;
+}
+
+//******************* air monitor ************************************
+
+
+void save_air_monitor_state(String save) {
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2);
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation);
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+      start = start + MAX_AQI_ECO_PATH;
+    int len = save.length();
+    EEPROM.begin(EEPROM_SIZE);
+    for (int i = 0; i < len; ++i) {
+        EEPROM.write(start, save[i]);  
+    }      
+    EEPROM.end();     
+}
+
+int read_air_monitor_state() {
+  int read_eeprom;
+  
+    int start =     1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+        start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+        start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+        start = start + MAX_AQI_ECO_PATH;
+    EEPROM.begin(EEPROM_SIZE);
+    delay(100);
+    read_eeprom = EEPROM.read(start);
+    EEPROM.end();
+  
+  return read_eeprom - 48;
+}
+
+
+
+
+void save_air_monitor_server(String save) {
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state) ;
+
+  int koniec = start +  MAX_AIR_MONITOR_SERVER ;
+
+  int len = save.length();
+  EEPROM.begin(EEPROM_SIZE);
+  for (int i = 0; i < len; ++i) {
+    EEPROM.write(start + i, save[i]);
+  }
+  for (int i = start + len; i < koniec; ++i) {
+    EEPROM.write(i, 0);
+  }
+  EEPROM.end();
+}
+
+String read_air_monitor_server(void) {
+  String read_eeprom = "";
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state) ;
+  int koniec = start + MAX_AIR_MONITOR_SERVER ;
+
+  EEPROM.begin(EEPROM_SIZE);
+  delay(100);
+  for (int i = start; i < koniec; ++i) {
+    read_eeprom += char(EEPROM.read(i));
+  }
+  EEPROM.end();
+  return read_eeprom;
+}
+
+void save_air_monitor_latitude(String save) {
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER ;
+
+  int koniec = start +  MAX_AIR_MONITOR_LATITUDE  ;
+
+  int len = save.length();
+  EEPROM.begin(EEPROM_SIZE);
+  for (int i = 0; i < len; ++i) {
+    EEPROM.write(start + i, save[i]);
+  }
+  for (int i = start + len; i < koniec; ++i) {
+    EEPROM.write(i, 0);
+  }
+  EEPROM.end();
+}
+
+String read_air_monitor_latitude(void) {
+  String read_eeprom = "";
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER ;
+
+  int koniec = start + MAX_AIR_MONITOR_LATITUDE  ;
+
+  EEPROM.begin(EEPROM_SIZE);
+  delay(100);
+  for (int i = start; i < koniec; ++i) {
+    read_eeprom += char(EEPROM.read(i));
+  }
+  EEPROM.end();
+  return read_eeprom;
+}
+
+void save_air_monitor_longitude(String save) {
+  int start = 1;
+      start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE;
+  int koniec = start +  MAX_AIR_MONITOR_LONGITUDE ;
+
+  int len = save.length();
+  EEPROM.begin(EEPROM_SIZE);
+  for (int i = 0; i < len; ++i) {
+    EEPROM.write(start + i, save[i]);
+  }
+  for (int i = start + len; i < koniec; ++i) {
+    EEPROM.write(i, 0);
+  }
+  EEPROM.end();
+}
+
+String read_air_monitor_longitude(void) {
+  String read_eeprom = "";
+  int start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
+      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
+      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE;
+  int koniec = start +  MAX_AIR_MONITOR_LONGITUDE ;
+
+  EEPROM.begin(EEPROM_SIZE);
+  delay(100);
+  for (int i = start; i < koniec; ++i) {
+    read_eeprom += char(EEPROM.read(i));
+  }
+  EEPROM.end();
+  return read_eeprom;
+}
+
+  

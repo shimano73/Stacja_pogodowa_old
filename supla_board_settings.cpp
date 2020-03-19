@@ -29,7 +29,7 @@ void supla_board_configuration(void) {
   //add_Relay_Button(13, 0, CHOICE_TYPE);
   //  add_Relay_Button_Invert(13, 12, CHOICE_TYPE);
 
-  //  Czas zaĹ‚Ä…czenia przekaĹşnika dziaĹ‚a tylko dla przycisku MONOSTABILNEGO
+  //  Czas zaÄąâ€šĂ„â€¦czenia przekaÄąĹźnika dziaÄąâ€ša tylko dla przycisku MONOSTABILNEGO
   //  add_Relay_Button(5, 14, CHOICE_TYPE, 5000);
   //  add_Relay_Button_Invert(13, 12, CHOICE_TYPE, 5000);  
 
@@ -48,9 +48,9 @@ void supla_board_configuration(void) {
   // add_DHT11_Thermometer(12);
   // add_DHT22_Thermometer(4);
     add_DHT22_Thermometer(100); // Wyniki pomiaru czujnika SDS011  
-    add_BME280_Sensor();        // Czujnik temperatury i wilgotnoĹ›ci   
+    add_BME280_Sensor();        // Czujnik temperatury i wilgotnoÄąâ€şci   
     add_DHT22_Thermometer(101); // Wyniki min i max temperatury dobowej  
-    add_SHT_Sensor();           //  ModuĹ‚ czujnika HECA podgrzewacza powietrza
+    add_SHT_Sensor();           //  ModuÄąâ€š czujnika HECA podgrzewacza powietrza
     add_DS18B20_Thermometer(102);
     
   //add_Oled(); //SDA GPIO4; SCL GPIO5 -->supla_settings.h
@@ -59,4 +59,5 @@ void supla_board_configuration(void) {
   add_Config(CONFIG_PIN);
 
 }
+
 
