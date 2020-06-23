@@ -363,16 +363,11 @@ String supla_webpage_start(int save) {
 
   // Deszczomierz
     content += "<div class='w'>";
-    content += "<h3>PLUVIOMETR</h3>";
-
-    content += "<i><input name='rain_surface_area' value='" + String(rain_surface_area) + "' ><label style='left: calc(100% - 255px)'>mm² </label>";
-    content += "<label>";
-    content += "Pole powierzchni ";
-    content += "</label></i>";   
+    content += "<h3>PLUVIOMETR</h3>";   
             
-    content += "<i><input name='rain_gauge_cup_capacity' value='" + String(rain_gauge_cup_capacity) + "' ><label style='left: calc(100% - 255px)'>ml </label>";
+    content += "<i><input name='rain_gauge_cup_capacity' value='" + String(read_rain_gauge_cup_capacity()) + "' ><label style='left: calc(100% - 255px)'>l/m² na 1 impuls </label>";
     content += "<label>";
-    content += "Pojemność ";
+    content += "Zebrany opad  ";
     content += "</label></i>";   
     content += "</div>";
 

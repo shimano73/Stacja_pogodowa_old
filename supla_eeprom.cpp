@@ -868,33 +868,6 @@ String read_air_monitor_longitude(void) {
 }
 
 
-void save_rain_surface_area(int temp) {
-  int start = 1;
-      start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
-      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
-      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
-      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE +  MAX_AIR_MONITOR_LONGITUDE;
-
-  EEPROM.begin(EEPROM_SIZE);
-  EEPROM.put(start, temp);
-  EEPROM.commit();
-  EEPROM.end();
-}
-
-  int read_rain_surface_area(void){
-  int temp = 0;
-  int start = 1;
-      start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
-      start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
-      start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
-      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE +  MAX_AIR_MONITOR_LONGITUDE;
-  EEPROM.begin(EEPROM_SIZE);
-  delay(100);
-  EEPROM.get(start, temp);
-  EEPROM.end();
-  return temp;
-}
-
 
 
 
@@ -904,7 +877,7 @@ void save_rain_gauge_cup_capacity(String save) {
       start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
       start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
       start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
-      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE +  MAX_AIR_MONITOR_LONGITUDE + sizeof(rain_surface_area );
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE +  MAX_AIR_MONITOR_LONGITUDE ;
   int koniec = start + sizeof(rain_gauge_cup_capacity);
   int len = save.length();
   EEPROM.begin(EEPROM_SIZE);
@@ -923,11 +896,11 @@ String read_rain_gauge_cup_capacity(void) {
       start = 1 + MAX_SSID + MAX_PASSWORD + MAX_MLOGIN + MAX_MPASSWORD + MAX_SUPLA_SERVER + MAX_SUPLA_ID + MAX_SUPLA_PASS + MAX_HOSTNAME + (SUPLA_GUID_SIZE * 2) ;
       start = start + MAX_BUTTON + MAX_RELAY +  MAX_RELAY_STATE + (MAX_DS18B20_SIZE * MAX_DS18B20) + (MAX_DS18B20_NAME * MAX_DS18B20) + sizeof(bme_channel.elevation); 
       start = start + sizeof(CustomWorkingPeriod) + sizeof(norma_pm25)+ sizeof(norma_pm10)+ sizeof(One_rpm_speed)+ sizeof(select_monitor_state)  + MAX_AQI_ECO_HOST;
-      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE +  MAX_AIR_MONITOR_LONGITUDE + sizeof(rain_surface_area );
+      start = start + MAX_AQI_ECO_PATH + sizeof(select_monitor_state)+ MAX_AIR_MONITOR_SERVER + MAX_AIR_MONITOR_LATITUDE +  MAX_AIR_MONITOR_LONGITUDE ;
   int koniec = start + sizeof(rain_gauge_cup_capacity);
   EEPROM.begin(EEPROM_SIZE);
   delay(100);
-  for (int i = start; i < koniec; ++i) {
+  for (int i = start; i < koniec-2; ++i) {
     read_eeprom += char(EEPROM.read(i));
   }
   EEPROM.end();

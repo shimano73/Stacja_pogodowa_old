@@ -206,9 +206,7 @@ volatile unsigned long tiptime = millis();
 double rainrate;
 unsigned long curtime;
 double rain;
-int rain_gauge_diameter = 112; // 
-int rain_surface_area = 9847; // mm2
-double rain_gauge_cup_capacity = 3.5; // w ml
+double rain_gauge_cup_capacity = 0.3554; // w ml
 
 
 //SUPLA ****************************************************************************************************
@@ -253,7 +251,6 @@ void setup() {
   norma_pm10 = read_sds011_norm_pm10();
   delay(50);
   One_rpm_speed = read_One_rpm_speed().toDouble();
-  rain_surface_area =  read_rain_surface_area() ; // mm2
   rain_gauge_cup_capacity = read_rain_gauge_cup_capacity().toDouble(); // w ml
 
   
@@ -631,8 +628,6 @@ void createWebServer() {
     save_sds011_norm_pm10(norma_pm10);
     
     save_One_rpm_speed(httpServer.arg("One_rpm_speed"));
-    rain_surface_area = httpServer.arg("rain_surface_area").toInt();
-    save_rain_surface_area(rain_surface_area);
     
     rain_gauge_cup_capacity = httpServer.arg("rain_gauge_cup_capacity").toDouble();
     save_rain_gauge_cup_capacity(httpServer.arg("rain_gauge_cup_capacity"));
@@ -1341,9 +1336,7 @@ void RainCount() { // z przerwania
   Serial.println("l/m2");  
   Serial.println("mm/h");  
 */
-  //rainrate = (1000000 / (Pi * pow((rain_gauge_diameter/2),2))) * rain_gauge_cup_capacity;
-  rainrate =   (1000000 / rain_surface_area) *  rain_gauge_cup_capacity;
-  rain += rainrate;
+  rain += rain_gauge_cup_capacity;
 
 }
 
