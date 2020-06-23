@@ -96,5 +96,3 @@ double get_pressure(int channelNumber, double last_val);
 extern double temp_html;
 extern double humidity_html;
 #endif //SUPLA_SETTINGS_H
-
-

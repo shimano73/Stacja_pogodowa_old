@@ -28,7 +28,10 @@ extern byte Modul_tryb_konfiguracji;
 extern int CustomWorkingPeriod;
 extern int norma_pm10;    
 extern int norma_pm25;
-extern double One_rpm_speed;
+extern double One_rpm_speed;// m/s
+extern int rain_surface_area; // mm2
+extern double rain_gauge_cup_capacity; // w ml
+
 
 extern char AQI_ECO_HOST[25];
 extern char AQI_ECO_PATH[50];
@@ -54,5 +57,3 @@ void status_func(int status, const char *msg);
 String getLogoSupla(void);
 
 #endif //SUPLA_WEB_SERVER_H
-
-

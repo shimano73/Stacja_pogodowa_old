@@ -33,6 +33,8 @@ void save_air_monitor_state(String save);
 void save_air_monitor_server(String save);
 void save_air_monitor_latitude(String save);
 void save_air_monitor_longitude(String save);
+void save_rain_surface_area(int temp);
+void save_rain_gauge_cup_capacity(String save);
 
 
 
@@ -62,13 +64,15 @@ int    read_air_monitor_state();
 String read_air_monitor_server(void);
 String read_air_monitor_latitude(void);
 String read_air_monitor_longitude(void);
-
-
+int read_rain_surface_area(void);
+  
+String read_rain_gauge_cup_capacity(void);
+       
 extern int CustomWorkingPeriod;
 extern int norma_pm10;    
 extern int norma_pm25;
 extern char select_monitor_state;
 extern double One_rpm_speed;
+extern int rain_surface_area;
+extern double rain_gauge_cup_capacity;
 #endif //SUPLA_EEPROM_H
-
-

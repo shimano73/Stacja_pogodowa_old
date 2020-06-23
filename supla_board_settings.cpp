@@ -59,5 +59,3 @@ void supla_board_configuration(void) {
   add_Config(CONFIG_PIN);
 
 }
-
-

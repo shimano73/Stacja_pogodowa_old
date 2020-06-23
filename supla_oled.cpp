@@ -384,5 +384,3 @@ void supla_oled_timer() {
     }
   }
 }
-
-
