@@ -6,7 +6,10 @@ Program stacji pogodowej oparty o projekt SUPLA dokonujący pomiarów :
   * pomiar predkości wiatru, 
   * pomiar opadów deszczu ,
   * pomiar nasłonecznienia.
-Doatkowo układ rejestruje  najniższą i najwyższą temperaturę w ciągu doby, reset następuje wg ustalonego harmonogramu na supla.org
+  * rejestracja  najniższej i najwyższej temperatury w ciągu doby, reset następuje wg ustalonego harmonogramu na supla.org
+  * możliwość wysyłania pomiarów na serwer aqi.eco
+  * możliwość wysyłania pomiarów na serwer air.monitor
+  
 Układ elektroniczny zbudowany w oparciu schemat i PCB od NETTIGO na wemos d1 mini, zamknięty w obudowie Kradex Z59.
 
 Numer kanału i jego przeznaczenie. 
