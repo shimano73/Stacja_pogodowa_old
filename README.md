@@ -11,7 +11,7 @@ Układ elektroniczny zbudowany w oparciu schemat i PCB od NETTIGO na wemos d1 mi
 
 Numer kanału i jego przeznaczenie. 
 
- 0.  czujnik smogu;
+ 0.  czujnik smogu SDS011;
  1.  ciśnienie atmosferyczne z czujnika BME280
  2.  temp. i wilgotność z czujnika BME280
  3.  temp min i max czujnika bme280 - wartości te można zresetować odpowiednio kanałem 8 i 9
