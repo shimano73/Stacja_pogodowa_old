@@ -9,7 +9,7 @@ Program stacji pogodowej oparty o projekt SUPLA dokonujący pomiarów :
 Doatkowo układ rejestruje  najniższą i najwyższą temperaturę w ciągu doby, reset następuje wg ustalonego harmonogramu na supla.org
 Układ elektroniczny zbudowany w oparciu schemat i PCB od NETTIGO na wemos d1 mini, zamknięty w obudowie Kradex Z59.
 
-Numer kanału i jego przeznaczenie :
+Numer kanału i jego przeznaczenie. 
  0.  czujnik smogu;
  1.  ciśnienie atmosferyczne z czujnika BME280
  2.  temp. i wilgotność z czujnika BME280
