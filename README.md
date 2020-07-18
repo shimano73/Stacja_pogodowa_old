@@ -2,7 +2,7 @@
 Program stacji pogodowej oparty o projekt SUPLA dokonujący pomiarów :
   * temperatury, wilgotności, ciśnienia (BME280)
   * zanieczyszczenia powietrza (SDS0111)
-  * modułem HECA(NETTIGO) z czujnikiem  temperatury i wilgotności - SHT31D w celu zmniejszenia błędu pomiarów przy dużej wilgotności,
+  * modułem HECA(NETTIGO) z grzałką PTC , czujnikiem  temperatury i wilgotności - SHT31D w celu zmniejszenia błędu pomiarów przy dużej wilgotności,
   * pomiar predkości wiatru, 
   * pomiar opadów deszczu ,
   * pomiar nasłonecznienia.
