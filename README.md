@@ -11,6 +11,18 @@ Program stacji pogodowej oparty o projekt SUPLA dokonujący pomiarów :
   * możliwość wysyłania pomiarów na serwer air.monitor
   
 Układ elektroniczny zbudowany w oparciu schemat i PCB od NETTIGO na wemos d1 mini, zamknięty w obudowie Kradex Z59.
+Schemat i projekt płytki PCB dostępny tu https://easyeda.com/nettigo/Nettigo-Air-Monitor-0.3
+
+Wykorzystane GPIO Wemos D1 mini.
+
+D1 - GPIO5 SDS011 TXD
+D2 - GPIO4 SDS011 RXD
+D3 - GPIO0 I2C SDA
+             BME280, BH1750, SHT31D
+D4 - GPIO2 I2C SCL
+D5 - GPIO14 - Czujnik deszczu
+D7 - GPIO13 - Czujnik wiatru
+
 
 Numer kanału i jego przeznaczenie. 
 
@@ -22,7 +34,7 @@ Numer kanału i jego przeznaczenie.
  5.  Nasłonecznienie z czujnika BH 1750;
  6.  prędkość wiatru w m/s
  7.  deszczomierz korytkowy 
- 8.  reset temp minimalnej i wartości deszczomierza - kanał ten jest wyłączony  urządzeniach klienckich
- 9.  rest temp. maksymalnej - kanał ten jest wyłączony  urządzeniach klienckich
+ 8.  reset temp minimalnej i wartości deszczomierza - kanał ten może być  urządzeniach klienckich
+ 9.  rest temp. maksymalnej - kanał ten może być wyłączony  urządzeniach klienckich
  
 Aktualizacja 2020.06.23 - Wprowadzono możliwość ustawienia danych pod własny deszczomierz korytkowy
