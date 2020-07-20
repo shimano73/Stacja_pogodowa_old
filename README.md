@@ -15,13 +15,19 @@ Schemat i projekt płytki PCB dostępny tu https://easyeda.com/nettigo/Nettigo-A
 
 Wykorzystane GPIO Wemos D1 mini.
 
-D1 - GPIO5 SDS011 TXD;
-D2 - GPIO4 SDS011 RXD;
-D3 - GPIO0 I2C SDA;
-             BME280, BH1750, SHT31D;
-D4 - GPIO2 I2C SCL;
-D5 - GPIO14 - Czujnik deszczu;
-D7 - GPIO13 - Czujnik wiatru;
+D1 - GPIO5 SDS011 TXD
+
+D2 - GPIO4 SDS011 RXD
+
+D3 - GPIO0 I2C SDA
+
+             BME280, BH1750, SHT31D
+             
+D4 - GPIO2 I2C SCL
+
+D5 - GPIO14 - Czujnik deszczu
+
+D7 - GPIO13 - Czujnik wiatru
 
 
 Numer kanału i jego przeznaczenie. 
