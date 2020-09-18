@@ -43,4 +43,4 @@ Numer kanału i jego przeznaczenie.
  
 Aktualizacja 2020.06.23 - Wprowadzono możliwość ustawienia danych pod własny deszczomierz korytkowy
 
-             2020.09.18 - Zmiana umożliwiająca wysyłanie danych z czujnika HECA do aqi.eco
+Aktualizacja 2020.09.18 - Zmiana umożliwiająca wysyłanie danych z czujnika HECA do aqi.eco
