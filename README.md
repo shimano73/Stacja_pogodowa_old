@@ -42,4 +42,5 @@ Numer kanału i jego przeznaczenie.
  9.  rest temp. maksymalnej - kanał ten może być wyłączony  urządzeniach klienckich
  
 Aktualizacja 2020.06.23 - Wprowadzono możliwość ustawienia danych pod własny deszczomierz korytkowy
+
              2020.09.18 - Zmiana umożliwiająca wysyłanie danych z czujnika HECA do aqi.eco
