@@ -27,7 +27,7 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
 #include <BH1750.h>  // support light sensor
-#include "ClosedCube_SHT31D.h" // support for Nettigo Air Monitor HECA
+#include "ClosedCube_SHT31D.h" //   https://github.com/closedcube/ClosedCube_SHT31D_Arduino/tree/master/src
 
 #include <ArduinoJson.h> // 6.9.0 or later
 
@@ -161,7 +161,7 @@ Adafruit_BME280 bme;
 
 // *************************** HECA (SHT30)*****************************************************************
 ClosedCube_SHT31D heca;
-
+SHT31D sht31d_sensor;
 
 //***************************  SDS011 **********************************************************************
 int rxPin = 5;
@@ -876,14 +876,14 @@ void get_temperature_and_humidity(int channelNumber, double *temp, double *humid
                 
          break; 
          case 4:
-             SHT31D result = heca.periodicFetchData();
-               if (result.error == SHT3XD_NO_ERROR) {
-                    *temp = result.t;
+             sht31d_sensor = heca.periodicFetchData();
+               if (sht31d_sensor.error == SHT3XD_NO_ERROR) {
+                    *temp = sht31d_sensor.t;
                     Serial.print("SHT31D  Temperature = ");
                     Serial.print(*temp);
                     Serial.print("°C  ") ;
                     
-                    *humidity = result.rh;
+                    *humidity = sht31d_sensor.rh;
                     Serial.print("Humidity = ");
                     Serial.print(*humidity); 
                     Serial.println("%");
@@ -1448,14 +1448,14 @@ void sendDataToAqiEco(double currentTemperature, double currentPressure, double 
     humidity["value"] = String(currentHumidity);
   }
 
-/*
+
     JsonObject heater_temperature = sensordatavalues.createNestedObject();
     heater_temperature["value_type"] = "heater_temperature";
-    heater_temperature["value"] = String("5.99");
+    heater_temperature["value"] = String(sht31d_sensor.t);
     JsonObject heater_humidity = sensordatavalues.createNestedObject();
-    heater_humidity["value_type"] = "heater_Humidity";
-    heater_humidity["value"] = String("50.99");
-  */
+    heater_humidity["value_type"] = "heater_humidity";
+    heater_humidity["value"] = String(sht31d_sensor.rh);
+  
   WiFiClient client;
 
   Serial.print("\nconnecting to ");
