@@ -242,16 +242,11 @@ void setup() {
   aqiEcoChipId = String(ESP.getChipId());
   luftdatenChipId = String(ESP.getChipId());
   delay(50);
-  Serial.begin(115200);
+  Serial.begin(74880);
   delay(50);
   mySDS011.begin(9600);
   delay(50);
-  CustomWorkingPeriod = read_sds011_cwp();
-  delay(50);norma_pm25 = read_sds011_norm_pm25();
-  norma_pm10 = read_sds011_norm_pm10();
-  delay(50);
-  One_rpm_speed = read_One_rpm_speed().toDouble();
-  rain_gauge_cup_capacity = read_rain_gauge_cup_capacity().toDouble(); // w ml
+ 
 
   
   strcpy(AQI_ECO_HOST ,read_aqi_eco_host().c_str());
@@ -286,7 +281,16 @@ void setup() {
     first_start();
     save_guid();
   }
-
+  CustomWorkingPeriod = read_sds011_cwp();
+  delay(50);
+  norma_pm25 = read_sds011_norm_pm25();
+   delay(50);
+  norma_pm10 = read_sds011_norm_pm10();
+  delay(50);
+  One_rpm_speed = read_One_rpm_speed().toDouble();
+  delay(50);
+  rain_gauge_cup_capacity = read_rain_gauge_cup_capacity().toDouble(); // w ml
+  delay(50);
   supla_board_configuration();
 
   supla_ds18b20_channel_start();
@@ -386,12 +390,12 @@ void loop() {
         read_from_sds011();
         int pomiar25_int = round(pomiar25);
         int pomiar10_int = round(pomiar10);
-        if ((AQI_ECO_ON) and (first==false)) {
+        if ((AQI_ECO_ON) and (first==false) and (WiFi.status() != WL_CONNECTED)) {
             sendDataToAqiEco(bme_channel.temp,bme_channel.pressure,bme_channel.humidity,0,pomiar25_int,0,pomiar10_int);
             Serial.println("WysyĹ‚anie danych do AQI.ECO");
             first=true;
         }
-        if ((AIRMONITOR_ON) and (first==true)) {
+        if ((AIRMONITOR_ON) and (first==true) and (WiFi.status() != WL_CONNECTED)) {
              sendDataToAirMonitor(bme_channel.temp, bme_channel.pressure,bme_channel.humidity,0,pomiar25_int,0,pomiar10_int);
             Serial.println("WysyĹ‚anie danych do AirMonitor");
             first=false;
@@ -422,6 +426,11 @@ void loop() {
   
 }
 //*********************************************************************************************************
+
+
+
+
+
 
 // Supla.org ethernet layer
 int supla_arduino_tcp_read(void *buf, int count) {
@@ -500,7 +509,26 @@ void supla_DigitalWrite(int channelNumber, uint8_t pin, uint8_t val) {
 //******************************* Timer  *******************************************************************
 
 void supla_timer() {
-   
+     //CONFIG ****************************************************************************************************
+      int config_read = digitalRead(CONFIG_PIN);
+      if (config_read != last_config_state) {
+        time_last_config_change = millis();
+      }
+      if ((millis() - time_last_config_change) > config_delay) {
+        if (config_read != config_state) {
+          Serial.println("Triger sate changed");
+          config_state = config_read;
+          if (config_state == LOW && Modul_tryb_konfiguracji != 1) {
+            gui_color = GUI_GREEN;
+            Modul_tryb_konfiguracji = 1;
+            Tryb_konfiguracji();
+          } else if (config_state == LOW && Modul_tryb_konfiguracji == 1) {
+            ESP.reset();
+          }
+        }
+      }
+      last_config_state = config_read;
+  
     if (millis() - lastmillis >= 1000) {
         //Aktualizuj co sekundÄ‚â€žĂ‚â„˘, bÄ‚â€žĂ‚â„˘dzie to rĂ„â€šÄąâ€šwnoznaczne z odczytem czÄ‚â€žĂ‚â„˘stotliwoĂ„Ä…Ă‚â€şci (Hz)
 
@@ -766,7 +794,7 @@ void WiFiEvent(WiFiEvent_t event) {
       Serial.println(WiFi.subnetMask());
       Serial.print("gatewayIP: ");
       Serial.println(WiFi.gatewayIP());
-      Serial.print("siÄąâ€ša sygnaÄąâ€šu (RSSI): ");
+      Serial.print("siła sygnału (RSSI): ");
       Serial.print(WiFi.RSSI());
       Serial.println(" dBm");
       break;
@@ -787,8 +815,10 @@ void first_start(void) {
   save_supla_hostname(DEFAULT_HOSTNAME);
   save_bme_elevation(120);
   save_sds011_cwp(10);
-  save_sds011_norm_pm10(11);
-  save_sds011_norm_pm25(11);
+  save_sds011_norm_pm10(25);
+  save_sds011_norm_pm25(50);
+  save_One_rpm_speed("0");
+  save_rain_gauge_cup_capacity("0");
 }
 
 String read_rssi(void) {
@@ -1039,10 +1069,18 @@ void supla_bme_start(void) {
   if (nr_bme > 0) {
     // Inicjalizacja BME280
     Wire.begin(SDA, SCL);
-    if (!bme.begin(0x76)) { //0x76
-      Serial.println("Nie znaleleziono czujnika BME280, sprawdź poprawność podłączenia i okablowanie!");
+    if (bme.begin(0x76)) { //0x76
+      Serial.println("Znaleleziono czujnik BME280 pod adresem 0x76 ");
       //while (1);
     }
+    else if (bme.begin(0x77)) { //0x76
+      Serial.println("Znaleleziono czujnik BME280 pod adresem 0x77 ");
+      //while (1);
+    }
+   else {
+      Serial.println("Nie znaleleziono czujnika BME280 pod żadnym adresem , sprawdź poprawność podłączenia i okablowanie!");
+    
+   }
   }
 }
 
@@ -1051,7 +1089,8 @@ void supla_heca_start(void) {
 }
 
 void supla_sensor_light_start(void) {
-  myBH1750.begin(); 
+  if (myBH1750.begin()) Serial.println("Znaleziono czujnik BH1750 "); 
+  else Serial.println("Nie znaleziono czujnika BH1750 ");
 }
 
 void add_Sensor(int sensor) {
@@ -1371,8 +1410,9 @@ void sendDataToAqiEco(double currentTemperature, double currentPressure, double 
     return;
   }
   Serial.print("Typ czujnika smogu : ");
-  Serial.print(DUST_MODEL); Serial.print(" Typ czujnika THP : ");
-   Serial.println(THP_MODEL);
+  Serial.println(DUST_MODEL); 
+  Serial.print(" Typ czujnika THP : ");
+  Serial.println(THP_MODEL);
   StaticJsonDocument<768> jsonBuffer;
   JsonObject json = jsonBuffer.to<JsonObject>();
   json["esp8266id"] = aqiEcoChipId;

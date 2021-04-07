@@ -7,12 +7,12 @@
 #include <SuplaDevice.h>
 
 #define  SUPLA_DEVICE_NAME     "SUPLA TESTY"
-#define  CONFIG_WIFI_LOGIN     "MODUL SUPLA"
+#define  CONFIG_WIFI_LOGIN     "Weather station"
 #define  CONFIG_WIFI_PASSWORD  ""
 
 #define  DEFAULT_LOGIN         "admin"
 #define  DEFAULT_PASSWORD      "password"
-#define  DEFAULT_HOSTNAME      "Primary v2"
+#define  DEFAULT_HOSTNAME      "Weather station"
 
 #define  UPDATE_PATH           "/firmware"
 
@@ -26,7 +26,7 @@
 //LED CONFIG *********************************************************************************************
 #define LED_CONFIG_PIN         12
 //CONFIG PIN *********************************************************************************************
-#define CONFIG_PIN             14
+#define CONFIG_PIN             16
 //WIRE I2C************************************************************************************************
 #define SDA                   0
 #define SCL                   2
@@ -54,6 +54,8 @@
 #define  MAX_AIR_MONITOR_SERVER    25
 #define  MAX_AIR_MONITOR_LATITUDE   10
 #define  MAX_AIR_MONITOR_LONGITUDE 10
+#define  MAX_ONE_RPM_SPEED           6
+#define  MAX_RAIN_GAUGE_CUP_CAPACITY 6
 
 
 

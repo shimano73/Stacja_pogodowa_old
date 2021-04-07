@@ -355,7 +355,7 @@ String supla_webpage_start(int save) {
     content += "<div class='w'>";
     content += "<h3>ANEMOMETR</h3>";
 
-    content += "<i><input name='One_rpm_speed' value='" + String(One_rpm_speed) + "' ><label style='left: calc(100% - 255px)'>m/s  dla 1 obr/s </label>";
+    content += "<i><input name='One_rpm_speed' value='" + String(read_One_rpm_speed().c_str()) + "' ><label style='left: calc(100% - 255px)'>m/s  dla 1 obr/s </label>";
     content += "<label>";
     content += "Kalibracja predkości";
     content += "</label></i>";           
@@ -365,7 +365,7 @@ String supla_webpage_start(int save) {
     content += "<div class='w'>";
     content += "<h3>PLUVIOMETR</h3>";   
             
-    content += "<i><input name='rain_gauge_cup_capacity' value='" + String(read_rain_gauge_cup_capacity()) + "' ><label style='left: calc(100% - 255px)'>l/m² na 1 impuls </label>";
+    content += "<i><input name='rain_gauge_cup_capacity' value='" + String(read_rain_gauge_cup_capacity().c_str()) + "' ><label style='left: calc(100% - 255px)'>l/m² na 1 impuls </label>";
     content += "<label>";
     content += "Zebrany opad  ";
     content += "</label></i>";   
