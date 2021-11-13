@@ -1,4 +1,4 @@
-# Stacja_pogodowa
+# Stacja_pogodowa_old
 Program stacji pogodowej oparty o projekt SUPLA dokonujący pomiarów :
   * temperatury, wilgotności, ciśnienia (BME280)
   * zanieczyszczenia powietrza (SDS0111)
